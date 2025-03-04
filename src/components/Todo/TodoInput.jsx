@@ -65,6 +65,7 @@ function TodoInput() {
                 placeholder="What's on your thought?"
                 onChange={(e) => setEventHandler(e.target.value)}
                 value={eventHandler}
+                onKeyDown={(e) => e.key === 'Enter' && addTask()} 
             />
             <button
                 onClick={addTask}
