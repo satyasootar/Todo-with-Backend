@@ -1,13 +1,21 @@
-import React from 'react'
-import TodoInput from './TodoInput'
-
+// src/App.js
+import React, { useState } from 'react';
+import Auth from '../Auth/Auth';
+import TodoInput from './TodoInput';
 
 function Todo() {
-    return (
-        <div>
-            <TodoInput />
-        </div>
-    )
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  return (
+    <div>
+      {isAuthenticated ? (
+        <TodoInput />
+      ) : (
+        <Auth onLogin={() => setIsAuthenticated(true)} />
+      )}
+    </div>
+  );
 }
 
-export default Todo
+export default Todo;
+
